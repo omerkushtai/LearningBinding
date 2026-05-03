@@ -15,15 +15,21 @@
 
 
                 <Label
+                    BindingContext="{Binding Source={x:Reference Name=rotationSlider}}"
                     FontSize="Large"
                     HorizontalOptions="Center"
+                    Rotation="{Binding Value}"
+                    Opacity="{Binding Value, Source={x:Reference Name=opacitySlider}}"
                     Text="קשה יש רק בלחם"
                     VerticalOptions="Center" />
 
                 <Image
                     x:Name="botImg"
                     Aspect="AspectFit"
+                    BindingContext="{Binding Source={x:Reference Name=scaleSlider}}"
                     HeightRequest="150"
+                    Scale="{Binding Value,Mode=}"
+                    Rotation="{Binding Value, Source={x:Reference Name=rotationSlider}}"
                     Source="dotnet_bot.png"
                     WidthRequest="150" />
 
@@ -71,7 +77,8 @@
                     Grid.Column="1"
                     Margin="0,15,0,0"
                     Padding="10"
-                    HorizontalTextAlignment="Center" />
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Value, Source={x:Reference rotationSlider}}" />
 
                 <!--  Opacity Slider  -->
                 <Label
@@ -91,7 +98,8 @@
                     Grid.Column="1"
                     Margin="0,15,0,0"
                     Padding="10"
-                    HorizontalTextAlignment="Center" />
+                    HorizontalTextAlignment="Center"
+                  />
 
             </Grid>
 
